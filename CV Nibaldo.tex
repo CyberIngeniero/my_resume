@@ -1,0 +1,292 @@
+\documentclass[letterpaper,11pt]{article}
+%------------------------------------------------------------------------------------------------------
+%----------------------------------------------------- REQUIRED PACKAGES
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage[skins]{tcolorbox}
+\usepackage{graphicx}
+\usepackage{etoolbox}
+\usepackage{dashrule}
+\usepackage{multirow,tabularx}
+\usepackage{changepage}
+\usepackage{fontawesome}
+\usepackage[margin=2cm]{geometry}
+\usepackage{lipsum}
+\usepackage{microtype}
+%\usepackage{flowfram}
+\usepackage{multicol}
+\usepackage{titlesec}
+
+\RequirePackage{comment}
+\definecolor{SwishLineColour}{HTML}{88AC0B}
+\definecolor{MarkerColour}{HTML}{006ea0}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+
+\usepackage{xcolor}
+\colorlet{accent}{NavyBlue}
+\colorlet{heading}{black}
+\colorlet{emphasis}{black}
+\colorlet{body}{black!80!white}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.3in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+%----------------------------------------------------- Sections formatting
+\titleformat{\section}{
+  \bfseries\large}{\textcolor{NavyBlue}{\rule[-7pt]{5pt}{1.2em}}}{5pt}{}
+  [\color{NavyBlue}\titlerule \vspace{-2pt}]
+
+%----------------------------------------------------- Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\itemmarker}{{\small\textbullet}}
+\newcommand{\ratingmarker}{\faCircle}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+\renewcommand{\labelitemii}{$\circ$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\newcommand{\cvtag}[1]{%
+  \tikz[baseline]\node[anchor=base,draw=body!40,rounded corners,inner xsep=1ex,inner ysep =0.75ex,text height=1.5ex,text depth=.25ex]{#1};
+}
+
+\newcommand{\cvskill}[2]{%
+\begin{tabular}{m{8em} c}
+\textcolor{emphasis}{\textbf{#1}} &
+\foreach \x in {1,...,5}{%
+  \space{\ifnumgreater{\x}{#2}{\color{body!30}}{\color{accent}}\faCircle}}\par \\%
+\end{tabular}
+}
+
+\newcommand{\divider}{\textcolor{body!30}{\hdashrule{\linewidth}{0.6pt}{0.6pt}}\medskip}
+\renewenvironment{quote}{\color{accent}\itshape\large}{\par}
+
+\newcommand{\cvsection}[2][]{%
+  \bigskip%
+  \ifstrequal{#1}{}{}{\marginpar{\vspace*{\dimexpr1pt-\baselineskip}\raggedright\input{#1}}}%
+  {\color{heading}\large\bfseries\MakeUppercase{#2}}\\[-1ex]%
+  {\color{heading}\rule{\linewidth}{1pt}\par}\medskip
+}
+
+\newcommand{\cvsubsection}[1]{%
+  \smallskip%
+  {\color{emphasis}\large\bfseries{#1}\par}\medskip
+}
+
+\newcommand{\cvevent}[4]{%
+  {\large\color{emphasis}#1\par}
+  \smallskip
+  \textbf{\color{accent}#2}\par
+  \smallskip
+  {\small\makebox[0.5\linewidth][l]{\faCalendar \hspace{0.5em}#3}%
+  \ifstrequal{#4}{}{}{\makebox[0.5\linewidth][l]{\faMapMarker\hspace{0.5em}#4}}\par}
+  \medskip
+}
+
+\newcommand{\makefield}[2]{\makebox[1.5em]{\color{MarkerColour!80!black}#1} #2\hspace{2em}}
+
+\newcommand{\cvref}[3]{%
+  \smallskip
+  \textcolor{emphasis}{\textbf{#1}}\par
+  \begin{description}[font=\color{accent},style=multiline,leftmargin=1.25em]
+  \item[\faEnvelope] #2
+  \item[\faPhone] #3
+  \end{description}
+%   \medskip
+}
+
+
+%\title{Curriculum Vitae}
+
+%------------------------------------------------------------------------------------------------------
+%----------------------------------------------------- CV STARTS
+\begin{document}
+
+%----------------------------------------------------- HEADING
+\leftheader{%
+  {\LARGE\bfseries\sffamily NIBALDO ALFONSO PINO ARAYA} \\
+  \vspace{0.1in}
+  {\Large\bfseries\sffamily Data Scientist} \\
+  \vspace{0.1in}
+  \begin{tabular}{lll}
+     \makefield{\faCalendar}{\texttt{04/octubre/1987}} & 
+     \makefield{\faMapMarker}{Leonor Cepeda #952, Independencia} & 
+     \makefield{\faEnvelope}{\texttt{n.pino@uc.cl}} \\
+     \makefield{\faMobile}{\texttt{(+56) 9 75168704}} & 
+    \makefield{\faLinkedin}{\href{http://www.linkedin.com/in/nibaldopinoaraya/}{nibaldopinoaraya}} &
+    \makefield{\faGithub}{\href{https://github.com/CyberIngeniero}{CyberIngeniero}} \\ %\makefield{\faTwitter}{\texttt{@CyberMath4}} & & \\
+  \end{tabular}
+}
+
+% primera columna
+\begin{minipage}[t]{0.55\textwidth}
+\hfill
+%----------------------------------------------------- ABOUTME
+\section{Acerca de mi}
+Soy un profesional apasionado, curioso y ambicioso, dinámico, de mente abierta, y de ágil aprendizaje, con una fascinación particular por los desafíos y el conocimiento. Disfruto del trabajo en equipo y colaborativo. Poseo más de 2 años en experiencia en Analitycs  y más de 6 años de experiencia en el mundo académico.
+
+En particular, poseo experiencia en Machine Learning y Estadísticas (modelos de clasificación, modelos de scoring de riesgo). Así como también poseo conocimientos en diversos lenguajes de programación como R, MATLAB, Python y SQL, entre otros. Mi experiencia se enfoca en desarrollos analíticos para el sector de seguros, donde me desempeño actualmente.
+
+
+%----------------------------------------------------- EXPERIENCE
+\section{Experiencia Laboral}
+
+\cvevent{Actuario de Pricing}{HDI Seguros}{Julio 2019 - Presente}{Santiago de Chile}
+\begin{itemize}
+\item  \textbf{Modelado:} Diseño e implementación de modelos de riesgo y tarificación para distintos ramos de seguros generales, utilizando diversas herramientas de modelado, predictivo y de clasificación, mediante la implementación de algoritmos de Machine Learning.
+\item \textbf{Reportería:} Dentro de mis actividades habituales se encuentra la construcción de reportes para diferentes áreas, utilizando herramientas como Qlikview y Power BI.
+\end{itemize}
+
+\divider
+
+\cvevent{Docente de Estadísticas}{Instituto Profesional AIEP}{2018 - 2019}{Santiago de Chile}
+\begin{itemize}
+\item Docente de asignaturas relacionadas a la estadística (Estadística Aplicada, Inferencia, entro otros) para la Escuela de TIC's. 
+\end{itemize}
+
+\divider
+
+\cvevent{Profesor de Matemáticas}{Enseñanza Media y Superior}{2014 - 2019}{Santiago de Chile}
+\begin{itemize}
+\item Docente de Educación Superior y Educación Media
+\end{itemize}
+
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.4\textwidth}%
+% segunda columna
+\hfill
+%----------------------------------------------------- CURSOS Y CERTIFICACIONES
+\section{Cursos y Certificaciones}
+
+\cvevent{Tensorflow in Practice - Specialization}{deeplearning.ai}{agosto 2020}{Coursera}
+\divider \\
+\cvevent{Scrum Foundation Professional Certificate}{Certiprof}{Julio 2020}{}
+\divider \\
+\cvevent{SQL for Data Science}{University of California Davis MOOC}{Julio 2020}{Coursera}
+\divider \\
+\cvevent{Non-Linear Modeling in R with GAMs}{DataCamp}{Julio 2020}{}
+\divider \\
+\cvevent{Qlikview Developer}{Udemy}{Julio 2019}{}
+\divider \\
+\cvevent{Curso Introducción a R project}{DataCamp}{Diembre 2017-Febrero 2018}{}
+
+%----------------------------------------------------- SKILLS
+\section{Habilidades Informáticas}
+
+\cvskill{R}{5} \\
+\cvskill{Python}{5} \\
+\cvskill{Qlikview}{5} \\
+\cvskill{SQL}{4}
+%\cvskill{AWS - GCP}{3}
+
+%----------------------------------------------------- STROGERS
+\section{Fortalezas}
+
+\cvtag{Machine Learning} 
+\cvtag{Análisis de información}
+\cvtag{Modelamiento matemático}
+\cvtag{Simulación}
+\cvtag{Análisis estadístico}
+\cvtag{Visualizaciónes}
+
+\end{minipage}
+
+%----------------------------------------------------- SEGUNDA PAGINA
+\begin{minipage}[t]{0.55\textwidth}
+% primera columna
+\hfill
+
+%----------------------------------------------------- EDUCATION
+\section{Formación Académica}
+
+\cvevent{Magíster en Estadísticas}{Pontificia Universidad Católica de Chile}
+{Marzo 2018 - Diciembre 2020}{Santiago de Chile}
+\divider \\
+\cvevent{Analista Data Science con Python}{Desafío Latam}{Julio 2019 - Julio 2020}{Santiago de Chile}
+\divider \\
+\cvevent{Diplomado en Estadísticas y Métodos Estadísticos}{Pontificia Universidad Católica de Chile}
+{Abril 2018 - Diciembre 2018}{Santiago de Chile}
+\divider \\
+\cvevent{Profesor de Educación Media en Matemáticas e Informática Educativa}{Universidad Católica Cardenal Raúl Silva Henríquez}
+{2011 - 2015}{Santiago de Chile}
+\divider \\
+\cvevent{Ingeniería Civil en Computación e Informática}{Universidad Tecnológica Metropolitana}
+{2006 - 2010}{Santiago de Chile}
+\divider \\
+\cvevent{Bachillerato en Ciencias de la Ingeniería}{Universidad Tecnológica Metropolitana}
+{2016 - 2010}{Santiago de Chile}
+
+\end{minipage}%
+\hfill%
+\begin{minipage}[t]{0.4\textwidth}%
+% segunda columna
+\hfill
+%----------------------------------------------------- IDIOMAS
+\section{Idiomas}
+
+\cvskill{Español}{5} \\
+\cvskill{Ingles}{3}
+
+%----------------------------------------------------- Referencias
+\section{Referencias}
+% \cvref{name}{email}{mailing address}
+
+\cvref{Jaime Arroyo Leon}{jaime.arroyo@hdi.cl}{9 3244 5380}
+\divider \\
+\cvref{Boris Carbonell}{boris.carbonell@gmail.com}{9 6221 5267}
+\divider \\
+\cvref{Felipe Zapata}{felnepc@gmail.com}{9 6215 8121}
+\divider\\
+\cvref{Antonio Castillo}{antonio.castillo@udla.cl}{9 8838 8592}
+\end{minipage}
+
+\end{document}
